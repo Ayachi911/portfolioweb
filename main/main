@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayachi Samyal — Portfolio</title>
+    <meta name="description" content="Published author since age 10, government cultural ambassador, digital creator with 400k+ monthly reach, AI researcher">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="liminal-margin" aria-label="Section navigation">
+        <div class="margin-line"></div>
+        <div class="margin-nodes">
+            <button class="margin-node" data-section="hero"><span class="node-label">Intro</span></button>
+            <button class="margin-node" data-section="narrative"><span class="node-label">About</span></button>
+            <button class="margin-node" data-section="milestones"><span class="node-label">Impact</span></button>
+            <button class="margin-node" data-section="creative"><span class="node-label">Works</span></button>
+            <button class="margin-node" data-section="leadership"><span class="node-label">Leadership</span></button>
+            <button class="margin-node" data-section="international"><span class="node-label">International</span></button>
+            <button class="margin-node" data-section="projects"><span class="node-label">Research</span></button>
+            <button class="margin-node" data-section="technical"><span class="node-label">Range</span></button>
+            <button class="margin-node" data-section="trajectory"><span class="node-label">Currently</span></button>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero-section" data-section="hero">
+        <div class="hero-name">
+            <h1>Ayachi Samyal</h1>
+            <p class="hero-descriptor">Published Author × Cultural Ambassador × Digital Creator</p>
+        </div>
+        <div class="hero-phrases">
+            <h2 class="rotating-phrase active">Comics × Code × Culture</h2>
+            <h2 class="rotating-phrase">India × Japan × Impact</h2>
+            <h2 class="rotating-phrase">Art × AI × Advocacy</h2>
+        </div>
+        <div class="scroll-indicator"><div class="scroll-line"></div></div>
+    </section>
+
+    <section id="narrative" class="narrative-section" data-section="narrative">
+        <div class="narrative-content">
+            <p class="narrative-text">At age 10, I became the youngest speaker at Sangrur Literary Festival as a published comic author. At 16, the Japanese government selected me as a <span class="accent">cultural ambassador</span> for a year-long immersion program. Today, I reach 400,000+ people monthly through digital platforms while conducting AI research on sustainable energy. My work has always existed at the intersection of <span class="accent">creative expression</span> and systematic inquiry—from selling 200+ copies of comics addressing child welfare to developing machine learning models for environmental analysis. What drives me: the conviction that the most urgent challenges require <span class="accent">multidisciplinary</span> minds willing to bridge art, technology, and cultural diplomacy.</p>
+        </div>
+    </section>
+
+    <section id="milestones" class="milestone-section" data-section="milestones">
+        <div class="milestone-content">
+            <div class="milestone-stat">
+                <div class="stat-number">400K+</div>
+                <div class="stat-label">Monthly reach across Pinterest platforms — photography, illustration, and aesthetic curation</div>
+            </div>
+            <div class="milestone-stat">
+                <div class="stat-number">1/21</div>
+                <div class="stat-label">Selected from India (out of 250 students across Asia) for Japanese Government's Asia Kakehashi scholarship at age 16</div>
+            </div>
+            <div class="milestone-stat">
+                <div class="stat-number">200+</div>
+                <div class="stat-label">Copies of self-published comic "Bub Dub" sold, with additional copies donated to Kailash Satyarthi Foundation</div>
+            </div>
+            <div class="milestone-stat">
+                <div class="stat-number">10</div>
+                <div class="stat-label">Years old when invited as youngest guest speaker at Sangrur Literary Festival</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="creative" class="creative-section" data-section="creative">
+        <h2 class="section-label">SELECTED WORKS & RECOGNITION</h2>
+        <div class="creative-grid">
+            <article class="creative-item has-image">
+                <div class="item-image"><img src="https://images.unsplash.com/photo-1618172193622-ae2d025f4032?w=800&h=600&fit=crop" alt="Digital content" loading="lazy"></div>
+                <p class="item-meta">Current / Digital Media</p>
+                <h3 class="item-title">Pinterest Creator — 400K+ Monthly Views</h3>
+                <p class="item-desc">Two active platforms: photography/aesthetics (300k+ views) and illustration/art (100k+ views)</p>
+            </article>
+            <article class="creative-item">
+                <p class="item-meta">2016 / Comics & Social Impact</p>
+                <h3 class="item-title">Bub Dub — 200+ Copies Sold</h3>
+                <p class="item-desc">Self-published comic addressing child labor. Commercial sales plus donation to Kailash Satyarthi Foundation</p>
+            </article>
+            <article class="creative-item">
+                <p class="item-meta">2015 / Publication & Speaking</p>
+                <h3 class="item-title">Youngest Speaker, Sangrur Literary Festival</h3>
+                <p class="item-desc">Guest speaker at age 10 following publication of debut comic "Sam Saira"</p>
+            </article>
+            <article class="creative-item has-image">
+                <div class="item-image"><img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800&h=600&fit=crop" alt="Art" loading="lazy"></div>
+                <p class="item-meta">2017 / Visual Art</p>
+                <h3 class="item-title">2nd Place — Inter-School Art Competition</h3>
+                <p class="item-desc">Drawing category, Chandigarh regional competition</p>
+            </article>
+            <article class="creative-item">
+                <p class="item-meta">2019 / Comics</p>
+                <h3 class="item-title">COAMIX Silent Manga Audition Competitor</h3>
+                <p class="item-desc">International manga competition judged by Japanese professional editors</p>
+            </article>
+            <article class="creative-item has-image">
+                <div class="item-image"><img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&h=600&fit=crop" alt="Comics" loading="lazy"></div>
+                <p class="item-meta">2017 / Publication</p>
+                <h3 class="item-title">Thoughts of a Dreamy Girl</h3>
+                <p class="item-desc">Published poetry collection</p>
+            </article>
+            <article class="creative-item">
+                <p class="item-meta">2025 / Visual Art</p>
+                <h3 class="item-title">Amity Inter-University Art Contest Winner</h3>
+                <p class="item-desc">First place university-wide</p>
+            </article>
+            <article class="creative-item">
+                <p class="item-meta">2024–25 / Social Impact</p>
+                <h3 class="item-title">NSS Contest Winner — Two Consecutive Years</h3>
+                <p class="item-desc">National Service Scheme recognition</p>
+            </article>
+            <article class="creative-item">
+                <p class="item-meta">2023 / Visual Art</p>
+                <h3 class="item-title">Amity's Got Talent Winner — Painting</h3>
+                <p class="item-desc">First place painting category</p>
+            </article>
+            <article class="creative-item">
+                <p class="item-meta">2019 / Visual Art</p>
+                <h3 class="item-title">National Art Competition Winner</h3>
+                <p class="item-desc">First place national-level</p>
+            </article>
+            <article class="creative-item">
+                <p class="item-meta">2018 / Robotics</p>
+                <h3 class="item-title">Inter-School Robotics Cup Winner</h3>
+                <p class="item-desc">First place robotics tournament</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="leadership" class="leadership-section" data-section="leadership">
+        <div class="timeline-container">
+            <svg class="timeline-line" viewBox="0 0 1200 2" preserveAspectRatio="none">
+                <line x1="0" y1="1" x2="1200" y2="1" stroke="#ffffff" stroke-width="1" />
+            </svg>
+            <div class="timeline-items">
+                <div class="timeline-item" style="left:5%">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <p class="timeline-year">2025–27</p>
+                        <h3 class="timeline-role">OECD Head — Pixel Club</h3>
+                        <p class="timeline-org">Lead technical programming for 200+ student events per semester. Partnership with Hack with India. Manage budgets and speaker acquisition.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="left:35%">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <p class="timeline-year">2026–27</p>
+                        <h3 class="timeline-role">Management Head</h3>
+                        <p class="timeline-org">AUP Malang Dance Club</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="left:62%">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <p class="timeline-year">Current</p>
+                        <h3 class="timeline-role">Library Club Panelist</h3>
+                        <p class="timeline-org">AUP Campus Literary Initiative</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="left:88%">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <p class="timeline-year">Current</p>
+                        <h3 class="timeline-role">Manga Artist</h3>
+                        <p class="timeline-org">Original series in development</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="international" class="international-section" data-section="international">
+        <div class="international-content">
+            <blockquote class="international-quote">Asia Kakehashi Project Scholar, 2021</blockquote>
+            <p class="international-subhead">Age 16 — One of 21 from India, 250 across Asia</p>
+            <div class="international-text">
+                <div class="text-column">
+                    <p>Selected by the Japanese government for a fully-funded, year-long cultural ambassadorship program with stipend. Completed full academic year at Yokohama Hiranuma High School, embedded in the Japanese education system.</p>
+                    <p>Trained in kyuudo (Japanese archery), traditional calligraphy, stamp carving, and tea ceremony while competing in basketball, badminton, and annual marathon. Scored 2nd highest in school-wide English examination.</p>
+                </div>
+                <div class="text-column">
+                    <p>This wasn't cultural tourism—it was cultural immersion at operational depth. Living with a host family, attending classes in Japanese, practicing martial arts rooted in Zen philosophy, and navigating a foreign education system at 16 developed cross-cultural fluency that can't be taught in classrooms.</p>
+                    <p>The experience fundamentally shaped my understanding of international relations: that genuine diplomatic capability emerges from lived experience in foreign systems, not theoretical study of them.</p>
+                </div>
+            </div>
+            <div class="image-strip">
+                <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&h=200&fit=crop" alt="Yokohama" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=600&h=200&fit=crop" alt="Culture" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=600&h=200&fit=crop" alt="Collaboration" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section" data-section="projects">
+        <h2 class="section-label">CURRENT RESEARCH & TECHNICAL WORK</h2>
+        <div class="projects-grid">
+            <article class="project-item">
+                <p class="project-status">Undergraduate Research</p>
+                <h3 class="item-title">AI-Driven Diatom Analysis for Alternative Fuel</h3>
+                <p class="item-desc">Research volunteer under Dr. Sarika Grover (Environmental Sciences), applying ML to sustainable energy research.</p>
+            </article>
+            <article class="project-item">
+                <p class="project-status">Completed — CDAC Mohali</p>
+                <h3 class="item-title">Water Quality Prediction System</h3>
+                <p class="item-desc">ML internship at government research institution. Developed predictive model for water quality analysis.</p>
+            </article>
+            <article class="project-item">
+                <p class="project-status">In Development</p>
+                <h3 class="item-title">Pinterest SEO Generator</h3>
+                <p class="item-desc">Automated SEO tool for content creators, leveraging 400k+ monthly views experience.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="technical" class="technical-section" data-section="technical">
+        <div class="technical-grid">
+            <div class="technical-column">
+                <h3 class="technical-heading">Creative Tools</h3>
+                <p class="technical-list"><span class="accent">Traditional Ink Nib Pens</span> – Micron Pens – Mixed Media – Figma – Photography</p>
+            </div>
+            <div class="technical-column">
+                <h3 class="technical-heading">Development & Research</h3>
+                <p class="technical-list">Python – C/C++ – Java – JavaScript – HTML/CSS – <span class="accent">Machine Learning</span> – Git</p>
+            </div>
+            <div class="technical-column">
+                <h3 class="technical-heading">Languages</h3>
+                <p class="technical-list">English (Native) – Hindi (Native) – Punjabi (Native) – <span class="accent">Japanese (N4)</span> – French (Elementary)</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="trajectory" class="trajectory-section" data-section="trajectory">
+        <div class="trajectory-content">
+            <h2 class="trajectory-heading">Currently</h2>
+            <p class="trajectory-text">Conducting AI/ML research on sustainable energy while completing final year BTech. Building digital platforms with 400,000+ monthly reach. Seeking opportunities in <span class="accent">international relations</span>, cultural diplomacy, and cross-border initiatives that value multidisciplinary thinking. Based in Chandigarh, available globally.</p>
+            <div class="trajectory-links">
+                <a href="mailto:samyalayachi@gmail.com" class="accent-link">samyalayachi@gmail.com</a>
+                <a href="https://linkedin.com/in/ayachisamyal" class="accent-link" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p class="footer-text">Published author since 2015 — Cultural ambassador since 2021 — Chandigarh, India</p>
+        <button class="back-to-top">Back to top</button>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

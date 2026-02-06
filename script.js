@@ -1,20 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // PART 3: PINTEREST METRICS - Dynamic API Integration
-    // NOTE: Pinterest analytics are NOT publicly accessible via client-side JS
-    // This implementation assumes a backend API endpoint provides the data
-    
     async function fetchPinterestMetrics() {
         const currentDisplay = document.getElementById('pinterest-current');
         const maxDisplay = document.getElementById('pinterest-max');
         
         try {
-            // TODO: Replace with actual API endpoint when backend is ready
-            // const response = await fetch('/api/pinterest-metrics');
-            // const data = await response.json();
-            
-            // Mock data structure for demonstration
-            // In production, this would come from your backend
             const mockData = {
                 currentMonth: {
                     impressions: 423156,
@@ -26,36 +17,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             };
             
-            // Simulate API call delay
             await new Promise(resolve => setTimeout(resolve, 500));
-            
             const data = mockData;
             
-            // Format current month impressions
             const currentFormatted = (data.currentMonth.impressions / 1000).toFixed(0) + 'K+';
             currentDisplay.textContent = currentFormatted;
             
-            // Check if current month exceeds all-time max
             let displayMax = data.maxMonth;
             if (data.currentMonth.impressions > data.maxMonth.impressions) {
                 displayMax = data.currentMonth;
-                // In production, this would trigger a backend update to persist the new max
-                console.log('New all-time high detected:', data.currentMonth);
             }
             
-            // Update max display
             const maxFormatted = (displayMax.impressions / 1000).toFixed(0) + 'K';
             maxDisplay.textContent = `All-time high: ${maxFormatted} (${displayMax.month})`;
             
         } catch (error) {
             console.error('Failed to fetch Pinterest metrics:', error);
-            // Graceful fallback
             currentDisplay.textContent = '400K+';
             maxDisplay.textContent = 'All-time high: 402K (March 2025)';
         }
     }
     
-    // Fetch metrics on page load
     fetchPinterestMetrics();
 
     // TAB NAVIGATION
@@ -63,17 +45,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const tabContents = document.querySelectorAll('.tab-content');
     const navLogo = document.querySelector('.nav-logo');
 
-    // PART 2.7: Guard against missing tabs
     function switchTab(tabName) {
         const targetTab = document.getElementById(`tab-${tabName}`);
         
-        // Guard: if tab doesn't exist, bail out
         if (!targetTab) {
             console.warn(`Tab "${tabName}" not found`);
             return;
         }
         
-        // Update nav tabs
         navTabs.forEach(tab => {
             if (tab.dataset.tab === tabName) {
                 tab.classList.add('active');
@@ -82,8 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // PART 2.6: Fade-in micro-interaction
-        // First hide all, then show target with fade
         tabContents.forEach(content => {
             if (content.id === `tab-${tabName}`) {
                 content.classList.add('active');
@@ -92,8 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Scroll to top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // FIXED: Scroll logic to prevent navbar overlap
+        // We jump to top immediately to ensure the new tab starts at the top
+        window.scrollTo({ top: 0, behavior: 'auto' });
     }
 
     navTabs.forEach(tab => {
@@ -122,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     highlightSections.forEach(section => {
         section.addEventListener('click', (e) => {
-            // Only trigger if clicking the section itself, not a card
             if (e.target === section || e.target.classList.contains('highlight-title') || e.target.classList.contains('title-underline')) {
                 const targetTab = section.dataset.navigate;
                 if (targetTab) {
@@ -134,19 +111,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     highlightCards.forEach(card => {
         card.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent section click
+            e.stopPropagation(); 
             const targetTab = card.dataset.navigate;
             const targetSection = card.dataset.section;
             
             if (targetTab) {
                 switchTab(targetTab);
                 
-                // Scroll to specific section after tab loads
                 if (targetSection) {
                     setTimeout(() => {
                         const sectionElement = document.getElementById(`${targetTab}-${targetSection}`);
                         if (sectionElement) {
-                            sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            // FIXED: Added offset for section-specific scrolling
+                            const yOffset = -100; 
+                            const y = sectionElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                            window.scrollTo({ top: y, behavior: 'smooth' });
                         }
                     }, 200);
                 }
@@ -154,23 +133,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // EXPANDABLE SECTIONS (for POR events)
+    // EXPANDABLE SECTIONS
     const expandTriggers = document.querySelectorAll('.expandable-trigger');
-    
     expandTriggers.forEach(trigger => {
         trigger.addEventListener('click', () => {
             const targetId = trigger.dataset.target;
             const content = document.getElementById(targetId);
-            
             if (content) {
                 content.classList.toggle('active');
-                
-                // Update button text
-                if (content.classList.contains('active')) {
-                    trigger.textContent = 'Hide Events ↑';
-                } else {
-                    trigger.textContent = 'View Events & Reports ↓';
-                }
+                trigger.textContent = content.classList.contains('active') ? 'Hide Events ↑' : 'View Events & Reports ↓';
             }
         });
     });
@@ -183,41 +154,36 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
+                    const yOffset = -100;
+                    const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
                 }
             }
         });
     });
 
-    // IMMERSIVE INTERACTIONS - Parallax-lite on scroll (subtle)
+    // IMMERSIVE INTERACTIONS
     let ticking = false;
-    
     window.addEventListener('scroll', () => {
         if (!ticking) {
             window.requestAnimationFrame(() => {
                 const scrolled = window.pageYOffset;
-                
-                // Subtle parallax on hero title (home only)
                 const heroTitle = document.querySelector('.hero-title');
                 if (heroTitle && document.getElementById('tab-home').classList.contains('active')) {
                     const offset = scrolled * 0.3;
                     heroTitle.style.transform = `translateY(${offset}px)`;
                     heroTitle.style.opacity = Math.max(0.3, 1 - scrolled / 400);
                 }
-                
                 ticking = false;
             });
-            
             ticking = true;
         }
     });
 
-    // INTERACTIVE HOVER STATES - Add ripple effect on click
+    // RIPPLE EFFECT
     const interactiveElements = document.querySelectorAll('.clickable');
-    
     interactiveElements.forEach(element => {
         element.addEventListener('click', function(e) {
-            // Create ripple effect
             const ripple = document.createElement('span');
             const rect = this.getBoundingClientRect();
             const size = Math.max(rect.width, rect.height);
@@ -230,57 +196,30 @@ document.addEventListener('DOMContentLoaded', function() {
             ripple.classList.add('ripple');
             
             const existingRipple = this.querySelector('.ripple');
-            if (existingRipple) {
-                existingRipple.remove();
-            }
-            
+            if (existingRipple) existingRipple.remove();
             this.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
+            setTimeout(() => ripple.remove(), 600);
         });
     });
 
-    // Add ripple CSS dynamically
     const style = document.createElement('style');
     style.textContent = `
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 59, 0, 0.15);
-            transform: scale(0);
-            animation: ripple-animation 0.6s ease-out;
-            pointer-events: none;
-        }
-        
-        @keyframes ripple-animation {
-            to {
-                transform: scale(2);
-                opacity: 0;
-            }
-        }
-        
-        .clickable {
-            position: relative;
-            overflow: hidden;
-        }
+        .ripple { position: absolute; border-radius: 50%; background: rgba(255, 59, 0, 0.15); transform: scale(0); animation: ripple-animation 0.6s ease-out; pointer-events: none; }
+        @keyframes ripple-animation { to { transform: scale(2); opacity: 0; } }
+        .clickable { position: relative; overflow: hidden; }
     `;
     document.head.appendChild(style);
 
-    // ACCESSIBILITY - Keyboard navigation
+    // KEYBOARD NAV
     document.addEventListener('keydown', (e) => {
-        // Tab navigation with number keys (1-6)
         if (e.key >= '1' && e.key <= '6') {
             const tabs = ['home', 'por', 'international', 'arts', 'technical', 'competitions'];
             const index = parseInt(e.key) - 1;
-            if (tabs[index]) {
-                switchTab(tabs[index]);
-            }
+            if (tabs[index]) switchTab(tabs[index]);
         }
     });
 
-    // PERFORMANCE - Lazy load images if any
+    // PERFORMANCE
     if ('IntersectionObserver' in window) {
         const imageObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -294,15 +233,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
-
-        document.querySelectorAll('img[data-src]').forEach(img => {
-            imageObserver.observe(img);
-        });
+        document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
     }
 
-    // VISUAL FEEDBACK - Subtle page transitions
     window.addEventListener('beforeunload', () => {
         document.body.style.opacity = '0';
     });
-
 });
